@@ -36,25 +36,25 @@
 				) ";
 		$hasil=$conn->query($sqll);
 		// Temporary variable, used to store current query
-		$templine = '';
+		$temp_var = '';
 		// Read in entire file
-		$lines = file($filename);
-		// Loop through each line
-		foreach ($lines as $line)
+		$all_lines = file($filename);
+		// Loop through each each_line
+		foreach ($all_lines as $each_line)
 		{
 		// Skip it if it's a comment
-		if (substr($line, 0, 2) == '--' || $line == '')
+		if (substr($each_line, 0, 2) == '--' || $each_line == '')
 		    continue;
 
-		// Add this line to the current segment
-		$templine .= $line;
+		// Add this each_line to the current segment
+		$temp_var .= $each_line;
 		// If it has a semicolon at the end, it's the end of the query
-		if (substr(trim($line), -1, 1) == ';')
+		if (substr(trim($each_line), -1, 1) == ';')
 		{
 		    // Perform the query
-		    mysql_query($templine) or print('Error performing query \'<strong>' . $templine . '\': ' . mysql_error() . '<br /><br />');
+		    mysql_query($temp_var) or print('Error performing query \'<strong>' . $temp_var . '\': ' . mysql_error() . '<br /><br />');
 		    // Reset temp variable to empty
-		    $templine = '';
+		    $temp_var = '';
 		}
 		}
 	}
