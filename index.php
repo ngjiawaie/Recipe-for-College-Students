@@ -7,7 +7,7 @@
 	<link rel="stylesheet" type="text/css" href="style.css">
 	<?php
 		$servername = "localhost";
-		$database = "college_recipes";
+		$database = "test";
 		$username = "root";
 		$password = "";
 
