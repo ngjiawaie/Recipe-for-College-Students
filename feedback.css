@@ -1,0 +1,10 @@
+.content-wrapper h1{
+	font-family: "Arial Black", Gadget, sans-serif;
+}
+
+.card{
+	padding:10px;
+	box-shadow: 0 0 30px #FFE0B2;
+	background-color: white;
+	border-radius: 10px;
+}

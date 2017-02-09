@@ -1,151 +1,130 @@
-
-
 body{
-	font-family: 'Roboto', sans-serif;
-/*	width:90%;
-    margin-left:auto;
-    margin-right:auto;*/
-    padding-left:50px;
-    padding-right:50px;
+	background-color: #FFFFFF;
 }
 
-header{
-/*	position:fixed;
-	top:0px;
-	left:0px;*/
-	width:100%;
-	padding:10px;
-	/*box-shadow: 0 0 3px black;*/
-/*	background-color: #2196F3;*/
-}
-
-header .logo a{
-	color: #FF8F00;
-	font-family: 'Roboto', sans-serif;
-	font-size: 30px;
-	float:left;
-	text-decoration: none;
-}
-
-
-header .right{
-	float:right;
-}
-
-.search{
-	float:left;
-	/*margin-right:20px;*/
-}
-
-.search input[type="search"]{
-	font-size: 1em;
-	height:30px;
-	width:130px;
-	color:black;
-	border: none;
-	background-image: url('res/ic_search_black_36dp_2x.png');
-    background-repeat: no-repeat;
-    background-size: contain;
-    background-position: left;
-    font-family: 'Roboto', sans-serif;
-	padding:4px;
-    padding-left:35px;
-    transition: width 0.2s ease-in-out;
-}
-
-::-webkit-input-placeholder{
-	font-family: 'Roboto', sans-serif;
-	color:black;
-}
-
-.search input[type="search"]:hover {
-	transition: box-shadow 0.2s;
-	box-shadow: 0px 0px 4px #FF8F00;
-}
-
-.search input[type="search"]:focus{
-	transition: width 0.2s ease-in-out;
-	width:500px;
-	box-shadow: 0px 0px 4px #FF8F00;
-	outline:none;
-}
-
-.content-wrapper{
-	padding-top:100px;
-}
-
-.content-wrapper .back a{
-	text-decoration: none;
-}
-
-.details{
-	box-shadow: 0 0 3px grey;
+.recipeHeading{
+	border-radius: 10px;
+	padding:20px;
 	overflow:hidden;
-	border-radius: 5px;
-	min-width: 400px;
 }
 
-
-@media only screen and (max-width: 910px) {
-   .print_btn{
-   		display:none;
-   }
-
-   .search input[type="search"]:focus{
-   		width:300px;
-   }
-
-  .details {
-      max-width: 450px;
-   }
-
-   .description{
-   	clear:both;
-   }
-}
-
-
-@media only screen and (max-width: 650px){
-	.search input[type="search"]{
-		width:35px;
-		transition: width 0s
-	}
-	.search input[type="search"]:active,
-	.search input[type="search"]:focus{
-		display:inline;
-		width:100%;
-		position:fixed;
-    	padding: 27px 50px;
-    	margin:0;
-		z-index:1;
-    	top:0;
-    	left:0;
-	
-    	transition: width 0.4s
-	}
-
-}
-
-.content-wrapper .details .pic{
+.recipeHeading .pic {
 	float:left;
 }
 
-.content-wrapper .details .pic img{
-	width: 100%;
-	height:33%;
+.recipeName{
+	font-family: "Arial Black", Gadget, sans-serif;
 }
 
-.ingredients{
-	clear:both;
-	border:0;
-	page-break-before: always;
+.recipeHeading .pic img{
+	max-width:70%;
+	max-height: 50%;
+	max-width:480px;
+	max-height: 360px;
+	width: 70%;
+	height:50%;
+	padding:3px;
+	box-shadow: 0 0 10px #FFE0B2;
 }
 
 .description table td,
 .description table th{
+	font-family: 'Roboto', sans-serif;
 	text-align: left;
-	padding-top: 20px;
-	padding-left:10px;
+	padding-top: 10px;
+}
+
+.ingredients{
+	clear:both;
+	page-break-before: always;
+	font-family: 'Roboto', sans-serif;
+	margin-top:30px;
+}
+
+.ingredients .ingredient-content ul{
+	list-style-type:none;
+	padding-left:0;
+}
+.ingredients .ingredient-content li{
+	border-bottom: 1px dotted grey;
+}
+
+.ingredients h2{
+	font-family: "Arial Black", Gadget, sans-serif;
+}
+
+.method{
+	margin-top:20px;
+}
+
+.method h2{
+	font-family: "Arial Black", Gadget, sans-serif;
+}
+
+.method .method-content{
+}
+
+.comments{
+	clear:both;
+	margin-top:100px;
+}
+
+.comments .comments-title{
+	text-align: center;
+	font-family: "Arial Black", Gadget, sans-serif;
+}
+
+.comments .comments-item{
+	margin-left:200px;
+	margin-right:200px;
+	margin-bottom:20px;
+}
+
+.comments .req{
+	font-family: "Arial Black", Gadget, sans-serif;
+}
+
+.card{
+	padding:10px;
+	box-shadow: 0 0 30px #FFE0B2;
+	background-color: white;
+	border-radius: 10px;
+}
+
+.print_btn{
+	background-color: orange;
+	color: white;
+	border:0;
+	padding:10px 20px;
+	margin-right: 30px;
+}
+
+@media screen and (max-width: 1024px) {
+   .print_btn{
+   		display:none;
+   }
+   .comments .comments-item{
+   		margin-left:20px;
+   		margin-right:20px;
+   }
+
+   .recipeHeading .pic {
+		float:none;
+	}
+
+}
+
+@media screen and (max-device-width: 1024px) {
+   .print_btn{
+   		display:none;
+   }
+   .comments .comments-item{
+   		margin-left:20px;
+   		margin-right:20px;
+   }
+  .recipeHeading .pic {
+		float:none;
+	}
 }
 
 @media print
@@ -159,8 +138,7 @@ header .right{
   .comments{
 	display:none;
   }
-  .details{
-  	box-shadow: 0 0 0;
-  }
-
+     .recipeHeading .pic {
+		float:none;
+	}
 }

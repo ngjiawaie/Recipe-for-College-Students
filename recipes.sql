@@ -3,9 +3,9 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Feb 09, 2017 at 10:46 AM
+-- Generation Time: Feb 09, 2017 at 07:29 PM
 -- Server version: 10.1.21-MariaDB
--- PHP Version: 5.6.30
+-- PHP Version: 7.1.1
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 SET time_zone = "+00:00";
@@ -17,8 +17,21 @@ SET time_zone = "+00:00";
 /*!40101 SET NAMES utf8mb4 */;
 
 --
--- Database: `trial`
+-- Database: `college_recipes`
 --
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `comments`
+--
+
+CREATE TABLE `comments` (
+  `comment_id` int(255) NOT NULL,
+  `comment` text NOT NULL,
+  `id` int(255) NOT NULL COMMENT 'id from recipes table',
+  `Name` varchar(30) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 -- --------------------------------------------------------
 
@@ -26,7 +39,7 @@ SET time_zone = "+00:00";
 -- Table structure for table `recipes`
 --
 
-CREATE TABLE IF NOT EXISTS `recipes` (
+CREATE TABLE `recipes` (
   `ID` int(100) NOT NULL,
   `NAME` varchar(1000) NOT NULL,
   `TYPE` varchar(10) NOT NULL,
@@ -84,7 +97,7 @@ INSERT INTO `recipes` (`ID`, `NAME`, `TYPE`, `DIFFICULTY`, `VEGETARIAN`, `CALORI
 (37, 'Mint Tea Punch', 'Beverage', 'EASY', 'YES', 94, 10, 10, '3 cups boiling water@ \r\n12 sprigs fresh mint@\r\n4 tea bags@ \r\n1 cup white sugar@ \r\n1 cup orange juice@ \r\n1/4 cup lemon juice@\r\n5 cups cold water@ \r\n3 orange slices for garnish (optional)@ \r\n3 lemon slices for garnish (optional)', '1. Place the tea bags and mint sprigs into a large pitcher. Pour boiling water over them, and allow to steep for about 8 minutes. Remove and discard the tea bags and mint leaves, squeezing out excess liquid. Stir in sugar until dissolved, then stir in the orange juice and lemon juice. Pour in the cold water. Serve over ice cubes, garnished with orange or lemon slices.', 'http://images.media-allrecipes.com/userphotos/560x315/432211.jpg'),
 (38, 'Fuss Free Hot Cranberry Tea', 'Beverage', 'EASY', 'YES', 100, 15, 26, '1/2 gallon orange juice@ \r\n1 (64 fluid ounce) bottle cranberry-raspberry juice@ \r\n1 (16 ounce) can pineapple juice@ \r\n2 (2.25 ounce) packages small red cinnamon candies@ \r\n1/2 gallon water@ \r\n8 tea bags', '1. Combine the orange juice, cranberry-raspberry juice, pineapple juice, and cinnamon candies in a large stockpot; cook over high heat until the candies dissolve.\r\n\r\n2. Combine the water and tea bags in a separate pot and bring to a boil; reduce heat and simmer 5 to 10 minutes; pour into juice mixture. Serve hot.', 'http://images.media-allrecipes.com/userphotos/250x250/77890.jpg'),
 (39, 'Coconut Oil Coffee', 'Beverage', 'EASY', 'YES', 224, 5, 2, '2 cups hot coffee@ \r\n2 tablespoons coconut oil@ \r\n2 tablespoons unsalted butter', '1. Blend coffee, coconut oil, and butter together in a blender until oil and butter are melted and coffee is frothy.\r\n', 'http://images.media-allrecipes.com/userphotos/560x315/1128816.jpg'),
-(40, 'Eggnog Latte', 'Beverage', 'EASY', 'YES', 275, 5, 1, '1/3 cup 2% milk@ \r\n2/3 cup eggnog@ \r\n1 (1.5 fluid ounce) jigger brewed espresso@ \r\n1 pinch ground nutmeg', '1. Pour milk and eggnog into a steaming pitcher and heat to between 145 degrees F to 165 degrees F (65 to 70 degrees C) using the steaming wand. Brew the shot of espresso, then add to mug. Pour the steamed milk and eggnog into the mug, using a spoon to hold back the foam. Spoon foam over the top. Sprinkle nutmeg on top of the foam.', 'http://allrecipes.com/recipe/146962/eggnog-latte/photos/733733/'),
+(40, 'Eggnog Latte', 'Beverage', 'EASY', 'YES', 275, 5, 1, '1/3 cup 2% milk@ \r\n2/3 cup eggnog@ \r\n1 (1.5 fluid ounce) jigger brewed espresso@ \r\n1 pinch ground nutmeg', '1. Pour milk and eggnog into a steaming pitcher and heat to between 145 degrees F to 165 degrees F (65 to 70 degrees C) using the steaming wand. Brew the shot of espresso, then add to mug. Pour the steamed milk and eggnog into the mug, using a spoon to hold back the foam. Spoon foam over the top. Sprinkle nutmeg on top of the foam.', 'http://images.media-allrecipes.com/userphotos/600x600/733733.jpg'),
 (41, 'Starbucks® Caramel Frappuccino Copycat Recipe', 'Beverage', 'EASY', 'YES', 271, 10, 2, '2 cups ice@ \r\n1 cup strong brewed coffee, cooled@ \r\n1 cup low-fat milk@ \r\n1/3 cup caramel sauce@ \r\n3 tablespoons white sugar', '1. Blend ice, coffee, milk, caramel sauce, and sugar together in a blender on high until smooth. Pour drink into two 16-ounce glasses.\r\n', 'http://images.media-allrecipes.com/userphotos/560x315/1104287.jpg'),
 (42, 'Abbey\'s White Chocolate Latte', 'Beverage', 'EASY', 'YES', 270, 10, 2, '1 1/2 cups milk@ \r\n1 tablespoon heavy cream@ \r\n1/8 teaspoon vanilla extract@ \r\n1 tablespoon white sugar@ \r\n1/2 cup brewed espresso@ \r\n1/4 cup white chocolate chips, chopped', '1. Combine the milk and cream in a saucepan, and whisk over high heat until hot and frothy. Remove from heat and stir in the vanilla and sugar. Whisk together hot espresso and white chocolate chips in a mug until smooth. If you are making two, pour half into another mug. Top with the frothy hot milk and stir to blend in the flavoring.', 'http://images.media-allrecipes.com/userphotos/560x315/2107268.jpg'),
 (43, 'Chocolate Mug Milkshake', 'Beverage', 'EASY', 'YES', 446, 15, 4, '4 cups chocolate ice cream@ \r\n2 cups milk@ \r\n1/4 cup brown sugar@ \r\n1/4 cup white sugar@ \r\n1/4 cup ground cinnamon', '1. In a blender, combine ice cream, milk, brown sugar, white sugar and cinnamon. Blend until smooth. Pour into glasses and serve.', 'http://images.media-allrecipes.com/userphotos/250x250/7649.jpg'),
@@ -96,9 +109,28 @@ INSERT INTO `recipes` (`ID`, `NAME`, `TYPE`, `DIFFICULTY`, `VEGETARIAN`, `CALORI
 (49, 'Summery Afternoon Smoothie', 'Beverage', 'EASY', 'YES', 334, 10, 1, '1 cup milk@ \r\n1/3 mango - peeled, seeded, and diced@ \r\n4 strawberries, hulled@ \r\n1/4 cup low-fat peach yogurt@ \r\n3 teaspoons honey', '1. Blend milk, mango, strawberries, yogurt, and honey together in a blender until smooth.', 'http://images.media-allrecipes.com/userphotos/560x315/1171399.jpg'),
 (50, 'Banana and Strawberry Smoothie', 'Beverage', 'EASY', 'YES', 262, 5, 1, '1 banana@ \r\n5 strawberries, hulled@\r\n1 teaspoon ground cinnamon@ \r\n1 cup cold milk@ \r\n1 drop red food coloring (optional)', '1. Combine the banana, strawberries, cinnamon, milk, and food coloring in a blender; blend until smooth; serve immediately.', 'http://images.media-allrecipes.com/userphotos/560x315/421985.jpg');
 
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `requests`
+--
+
+CREATE TABLE `requests` (
+  `ID` int(100) NOT NULL,
+  `NAME` varchar(50) NOT NULL,
+  `EMAIL` varchar(50) NOT NULL,
+  `REQUEST` varchar(200) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
 --
 -- Indexes for dumped tables
 --
+
+--
+-- Indexes for table `comments`
+--
+ALTER TABLE `comments`
+  ADD PRIMARY KEY (`comment_id`);
 
 --
 -- Indexes for table `recipes`
@@ -107,14 +139,30 @@ ALTER TABLE `recipes`
   ADD PRIMARY KEY (`ID`);
 
 --
+-- Indexes for table `requests`
+--
+ALTER TABLE `requests`
+  ADD PRIMARY KEY (`ID`);
+
+--
 -- AUTO_INCREMENT for dumped tables
 --
 
+--
+-- AUTO_INCREMENT for table `comments`
+--
+ALTER TABLE `comments`
+  MODIFY `comment_id` int(255) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=21;
 --
 -- AUTO_INCREMENT for table `recipes`
 --
 ALTER TABLE `recipes`
   MODIFY `ID` int(100) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=51;
+--
+-- AUTO_INCREMENT for table `requests`
+--
+ALTER TABLE `requests`
+  MODIFY `ID` int(100) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
 /*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
