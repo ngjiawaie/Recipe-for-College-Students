@@ -32,31 +32,9 @@ header .right{
 	float:right;
 }
 
-/*.aboutus{
-	float:right;
-	margin-right:20px;
-	height:30px;
-	width:130px;
-	position:relative;
-}
-
-.aboutus a{
-	text-decoration: none;
-	color:black;
-	position: absolute;
-    top: 50%;
-    left: 50%;
-    margin-right: -50%;
-    transform: translate(-50%, -50%);
-}
-
-.aboutus:hover {
-	transition: box-shadow 0.2s;
-	box-shadow: 0px 0px 4px grey;
-}*/
-
 .search{
 	float:left;
+	/*margin-right:20px;*/
 }
 
 .search input[type="search"]{
@@ -96,43 +74,38 @@ header .right{
 	padding-top:100px;
 }
 
-.content{
-	display: flex;
-	flex-wrap: wrap;
+.content-wrapper .back a{
+	text-decoration: none;
 }
 
-.recipe{
-	flex:1;
-	flex-basis: 20%;
-	/*Change flex-basis to 100% in phone view@!!!@!!@!!*/
-	margin: 15px 0 20px 15px;
-	box-shadow: 0px 0px 6px grey;
-	position:relative;
-	border-radius: 10px;
-	overflow: hidden;
+.details{
+	box-shadow: 0 0 3px grey;
+	overflow:hidden;
+	border-radius: 5px;
+	min-width: 400px;
 }
 
-@media (max-width: 1000px) {
-   .recipe{
-   	flex-basis:40%;
+
+@media only screen and (max-width: 910px) {
+   .print_btn{
+   		display:none;
    }
-}
 
-@media only screen and (max-width: 600px){
-   .recipe{
-   	flex-basis:100%;
+   .search input[type="search"]:focus{
+   		width:300px;
    }
-}
 
-@media (max-width: 600px) {
-   .recipe{
-   	flex-basis:100%;
-   	min-width:300px;
+  .details {
+      max-width: 450px;
+   }
+
+   .description{
+   	clear:both;
    }
 }
 
 
-@media only screen and (max-width: 850px) {
+@media only screen and (max-width: 650px){
 	.search input[type="search"]{
 		width:35px;
 		transition: width 0s
@@ -150,27 +123,44 @@ header .right{
 	
     	transition: width 0.4s
 	}
+
 }
 
+.content-wrapper .details .pic{
+	float:left;
+}
 
-.recipe .foodimg img{
+.content-wrapper .details .pic img{
 	width: 100%;
 	height:33%;
 }
 
-.recipeDetails .view-recipe{
-	position: absolute; bottom: 0; right: 0;
-	margin-right: 10px;
-	margin-bottom: 10px;
+.ingredients{
+	clear:both;
+	border:0;
+	page-break-before: always;
 }
 
-
-.recipeDetails{
-	padding: 0 10px 10px 10px;
+.description table td,
+.description table th{
+	text-align: left;
+	padding-top: 20px;
+	padding-left:10px;
 }
 
-.recipe:hover{
-	cursor:pointer;
-	transition: color 0.3s;
-	color: #E65100;
+@media print
+{
+  .print_btn{
+  	display:none;
+  }
+  .search{
+  	display:none;
+  }
+  .comments{
+	display:none;
+  }
+  .details{
+  	box-shadow: 0 0 0;
+  }
+
 }
