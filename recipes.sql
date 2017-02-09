@@ -24,9 +24,8 @@ SET time_zone = "+00:00";
 
 --
 -- Table structure for table `recipes`
---
 
-CREATE TABLE `recipes` (
+CREATE TABLE IF NOT EXISTS `recipes` (
   `ID` int(100) NOT NULL,
   `NAME` varchar(1000) NOT NULL,
   `TYPE` varchar(10) NOT NULL,
