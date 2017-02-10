@@ -21,6 +21,11 @@
 		$hasil = $conn->query($sql);
 		$photo = $conn->query($sql_1);
 	?>
+	<script>
+		function submitForm(id){
+			document.getElementById(id).submit();
+		}
+	</script>
 </head>
 <body>
 	<header>
@@ -41,7 +46,10 @@
 		<h2>Today's special</h2>
 		<?php 
 			while($result = mysqli_fetch_array($photo)){
-				echo '<img class="mySlides" src ="'.$result["URL"].'">';
+				echo '<form method="get" action="recipe.php" name="recipe" value="View Recipe"  id='.$result["ID"].'>
+							<input type="hidden" name="recipeID" value='.$result["ID"	].' id="submit_hidden">
+							<img class="mySlides" src ="'.$result["URL"].'" onclick = "submitForm('.$result["ID"].')">
+						</form>';
 			}
 		?>
 	</div>
@@ -54,13 +62,11 @@
 		    for (i = 0; i < x.length; i++) {
 		      	x[i].style.display = "none"; 
 		    }
-		    slideIndex++;
-		    if (slideIndex > x.length) {slideIndex = 1} 
-		    x[slideIndex-1].style.display = "block"; 
+		    x[slideIndex].style.display = "block"; 
+		    slideIndex = (slideIndex+1)%x.length;
 
 		    setTimeout(carousel, 2500); // Change image every 2 seconds
 		}
-
 	</script>
 
 	<div class="content-wrapper">
@@ -83,10 +89,5 @@
 			?>
 		</div>
 	</div>
-	<script>
-	function submitForm(id){
-		document.getElementById(id).submit();
-	}
-	</script>
 </body>
 </html>

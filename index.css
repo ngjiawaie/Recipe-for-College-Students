@@ -34,6 +34,10 @@
 	padding-bottom:0;
 }
 
+.imageSlider img:hover{
+  cursor:pointer;
+}
+
 .imageSlider .leftArrow{
 	font-size:444px;
 }

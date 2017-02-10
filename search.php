@@ -20,6 +20,7 @@
 
 
 		$hasil = $conn->query($sql);
+		$hasil2 = $conn->query($sql);
 	?>
 </head>
 	
@@ -32,13 +33,24 @@
 						<input type="search" name="query" placeholder="Search..." />
 					</form>
 				</div>
+				<div class="feed">
+					<a id="fb" href="feedback.php">Feedback</a>
+				</div>
 			</div>
 		</header>
 
 		<div class="content-wrapper">
-			<h2>Recommendations: </h2>
-			<div class="content">
+			<h2>Search results:</h2>
 				<?php
+					$result = mysqli_fetch_array($hasil2);
+					if(empty($result)){
+						echo "<p>No results found :( You can feedback us on what recipe you want!</p><p>A few alternative suggestions:</p>";
+						$sql = "SELECT ID,NAME,TYPE,CALORIES,INGREDIENT,VEGETARIAN,DIFFICULTY,SERVING,DURATION,METHOD, URL FROM recipes ORDER BY RAND() LIMIT 3;";
+						$hasil = $conn->query($sql);
+					}
+				?>
+			<div class="content">
+			<?php
 					while($result = mysqli_fetch_array($hasil)){
 					echo '<div class="recipe" onclick = "submitForm('.$result["ID"].')">
 							<div class="foodimg">

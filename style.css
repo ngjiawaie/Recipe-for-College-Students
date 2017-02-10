@@ -35,6 +35,7 @@ header a{
 	text-align: center;
 	padding:5px;
 	border:1px solid grey;
+	margin-left:5px;
 }
 
 .feed:hover{

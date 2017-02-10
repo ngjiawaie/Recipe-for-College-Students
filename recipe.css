@@ -61,8 +61,6 @@ body{
 	font-family: "Arial Black", Gadget, sans-serif;
 }
 
-.method .method-content{
-}
 
 .comments{
 	clear:both;
@@ -114,6 +112,11 @@ body{
 
 }
 
+.dontexist{
+	font-size: 2em;
+	font-family: "Arial Black", Gadget, sans-serif;
+}
+
 @media screen and (max-device-width: 1024px) {
    .print_btn{
    		display:none;
@@ -127,6 +130,7 @@ body{
 	}
 }
 
+
 @media print
 {
   .print_btn{
@@ -138,7 +142,13 @@ body{
   .comments{
 	display:none;
   }
-     .recipeHeading .pic {
-		float:none;
-	}
+ .recipeHeading .pic {
+	float:none;
+  }
+  .fb-share-button{
+  	display:none;
+  }
+  .feed{
+  	display:none;
+  }
 }

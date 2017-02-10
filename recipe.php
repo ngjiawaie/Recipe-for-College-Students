@@ -19,6 +19,9 @@
 		$comment = $conn->query($sql);
 		
 		$result = mysqli_fetch_array($hasil);
+		if(empty($result)){
+ 		  header("Location: index.php");
+		}
 	?>
 	<title><?php echo $result["NAME"] ?></title>
 	<meta charset="UTF-8">
@@ -26,34 +29,31 @@
 	<link rel="stylesheet" type="text/css" href="style.css">
 	<link rel="stylesheet" type="text/css" href="recipe.css">
 	<link href="https://fonts.googleapis.com/css?family=Roboto" rel="stylesheet">
+	<script>(function(d, s, id) {
+	  var js, fjs = d.getElementsByTagName(s)[0];
+	  if (d.getElementById(id)) return;
+	  js = d.createElement(s); js.id = id;
+	  js.src = "//connect.facebook.net/en_US/sdk.js#xfbml=1&version=v2.8";
+	  fjs.parentNode.insertBefore(js, fjs);
+	}(document, 'script', 'facebook-jssdk'));</script>
 </head>
 <body>
-<div id="fb-root"></div>
-<script>(function(d, s, id) {
-  var js, fjs = d.getElementsByTagName(s)[0];
-  if (d.getElementById(id)) return;
-  js = d.createElement(s); js.id = id;
-  js.src = "//connect.facebook.net/en_US/sdk.js#xfbml=1&version=v2.8";
-  fjs.parentNode.insertBefore(js, fjs);
-}(document, 'script', 'facebook-jssdk'));</script>
-
-
 	<header>
 		<div class="logo"><a href="index.php">Recipe For All</a></div>
 		<div class="right">
 			<div class="search">
-				<form>
+				<form method="post" action="search.php">
 					<input type="search" name="query" placeholder="Search..." />
 				</form>
+			</div>
+			<div class="feed">
+				<a id="fb" href="feedback.php">Feedback</a>
 			</div>
 		</div>
 	</header>
 
 
 	<div class="content-wrapper">
-
-
-
 		<div class="recipeHeading card">
 			<div class="pic">
 				<?php echo '<img src="'.$result["URL"].'"/>'; ?>
@@ -85,7 +85,7 @@
 				<br>
 				<input type="button" name="print" value="Print" onClick="window.print()" class="print_btn">
 				<?php
-				echo '<div class="fb-share-button" data-href="http://localhost/recipe/recipe.php?recipeID='. $result["ID"] .'" data-layout="button_count" data-mobile-iframe="true"><a class="fb-xfbml-parse-ignore" target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=https%3A%2F%2Fdevelopers.facebook.com%2Fdocs%2Fplugins%2F&amp;src=sdkpreparse">Share</a></div>'
+					echo '<div class="fb-share-button" data-href="http://localhost/recipe/recipe.php?recipeID='. $result["ID"] .'" data-layout="button_count" data-mobile-iframe="true"><a class="fb-xfbml-parse-ignore" target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=https%3A%2F%2Fdevelopers.facebook.com%2Fdocs%2Fplugins%2F&amp;src=sdkpreparse">Share</a></div>'
 
 				 ?>
 			</div>

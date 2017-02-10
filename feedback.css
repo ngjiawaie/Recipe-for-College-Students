@@ -8,3 +8,32 @@
 	background-color: white;
 	border-radius: 10px;
 }
+
+.name{
+	float:left;
+	margin-right:113px;
+	margin-bottom: 20px;
+}
+
+.name input[type="text"]{
+	width:300px;
+	font-size: 20px;
+}
+
+.email input[type="email"]{
+	width:300px;
+	font-size: 20px;
+}
+
+.message{
+	clear:both;
+}
+
+.message textarea{
+	font-size: 20px;
+}
+
+.thx{
+	font-size: 2em;
+	font-family: "Arial Black", Gadget, sans-serif;
+}
